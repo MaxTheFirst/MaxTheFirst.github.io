@@ -1,0 +1,60 @@
+// main: ../style.less
+
+.contact__inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    align-items: stretch;
+    padding-bottom: 32px;
+}
+
+.contact__form {
+    gap: 15px;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s ease-in-out;
+
+    &:focus {
+        border-color: @blue;
+        outline: none;
+    }
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+.contact__button {
+    height: 47px;
+    background-color: @red;
+    color: #fff;
+    text-align: center;
+    line-height: 47px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0px;
+    border-radius: 5px;
+    border: none;
+}

@@ -1,5 +1,4 @@
 // compress: true
-
 @import "vars";
 
 body {
@@ -15,30 +14,26 @@ body {
     box-sizing: border-box;
 }
 
-header {
-    padding: 20px 0;
+h2 {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 60px;
+    letter-spacing: 0px;
+    vertical-align: bottom;
+    color: @blue;
 }
 
-.container {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
+p {
+    color: @blue;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding-right: 50px;
 }
 
-.header__inner {
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 20px;
-}
 
-nav {
-    gap: 20px;
-}
-
-.nav__link {
-    text-decoration: none;
-    color: #000;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 10px 15px;
-}
+@import "blocks/container";
+@import "blocks/header";
+@import "blocks/intro";
+@import "blocks/posts";
+@import "blocks/works";
+@import "blocks/form";

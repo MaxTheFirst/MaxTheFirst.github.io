@@ -1,0 +1,62 @@
+// main: ../style.less
+
+.intro__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 120px;
+    position: relative;
+}
+
+.intro__content {
+    flex: 2;
+}
+
+.intro__title {
+    color: @blue;
+    font-size: 44px;
+}
+
+.intro__button {
+    display: inline-block;
+    width: 208px;
+    height: 47px;
+    background-color: @red;
+    color: #fff;
+    text-align: center;
+    line-height: 47px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0px;
+    border-radius: 5px;
+}
+
+.intro__photo {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro__photo img {
+    width: 243px;
+    height: 243px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
+
+.intro__photo::before {
+    content: "";
+    width: 243px;
+    height: 243px;
+    background-color: @blue-lite;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    z-index: 1;
+}
