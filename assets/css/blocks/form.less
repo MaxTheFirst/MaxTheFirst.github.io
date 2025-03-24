@@ -1,60 +1,71 @@
 // main: ../style.less
 
-.contact__inner {
+.contact_inner {
     display: flex;
     flex-direction: column;
     position: relative;
     width: 100%;
-    align-items: stretch;
-    padding-bottom: 32px;
+}
+
+.contact__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .contact__form {
-    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    padding: 40px 0;
 }
 
 .form__group {
     display: flex;
+    justify-content: center;
     flex-direction: column;
+    margin-bottom: 15px;
 }
 
 label {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 5px;
-    color: #333;
+    color: @blue;
 }
 
 input,
 textarea {
     width: 100%;
     padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    transition: border 0.3s ease-in-out;
-
-    &:focus {
-        border-color: @blue;
-        outline: none;
-    }
 }
 
 textarea {
-    resize: none;
-    height: 100px;
+    resize: vertical;
+    min-height: 120px;
 }
 
 .contact__button {
-    height: 47px;
     background-color: @red;
     color: #fff;
     text-align: center;
     line-height: 47px;
-    text-decoration: none;
     font-weight: 500;
     font-size: 20px;
     letter-spacing: 0px;
     border-radius: 5px;
     border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+        background-color: darken(@red, 10%);
+    }
 }
+
