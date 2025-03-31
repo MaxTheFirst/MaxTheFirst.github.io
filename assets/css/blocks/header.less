@@ -9,14 +9,17 @@ header {
 .header__inner {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     width: 100%;
+    position: relative;
 }
 
-nav {
+.nav {
     display: flex;
     gap: 20px;
 }
 
+/* Обычные ссылки */
 .nav__link {
     text-decoration: none;
     color: #000;
@@ -24,12 +27,69 @@ nav {
     font-weight: 500;
     font-size: 20px;
     line-height: 100%;
-    letter-spacing: 0px;
-    text-align: right;
-
-    &:hover,
-    &:active {
-        color: @red;
-    }
-
 }
+
+.nav__link:hover {
+    color: red;
+}
+
+/* Скрываем чекбокс */
+.menu-checkbox {
+    display: none;
+}
+
+/* Иконка бургер-меню */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+}
+
+/* Мобильное меню */
+.mobile-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
+
+.mobile-link {
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+    display: block;
+}
+
+.mobile-link:hover {
+    background: #f0f0f0;
+}
+
+/* Медиа-запрос: скрываем обычное меню, показываем иконку */
+@media (max-width: 756px) {
+    .nav {
+        display: none;
+    }
+    .menu-icon {
+        display: block;
+    }
+    /* Анимация появления меню */
+    .menu-checkbox:checked ~ .mobile-menu {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+
+
