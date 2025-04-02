@@ -23,6 +23,23 @@ h2 {
     color: @blue;
 }
 
+div:has(h2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+@media (max-width: @max-mobile-width) {
+    div:has(h2) {
+        justify-content: center;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}
+
 p {
     color: @blue;
     font-size: 16px;
@@ -37,3 +54,4 @@ p {
 @import "blocks/posts";
 @import "blocks/works";
 @import "blocks/form";
+@import "blocks/end";

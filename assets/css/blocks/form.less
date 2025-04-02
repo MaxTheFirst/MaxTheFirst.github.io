@@ -1,16 +1,12 @@
 // main: ../style.less
 
-.contact_inner {
+.contact__inner {
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 100%;
 }
 
-.contact__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.contact__content {
     width: 100%;
 }
 
@@ -69,3 +65,10 @@ textarea {
     }
 }
 
+@media (max-width: @max-mobile-width) {
+    .contact__form {
+        width: 70%;
+        padding: 0;
+        padding-bottom: 20px;
+    }
+}
