@@ -1,54 +1,6 @@
 // compress: true
 @import "vars";
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Heebo', sans-serif;
-    font-size: 16px;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
-h2 {
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 60px;
-    letter-spacing: 0px;
-    vertical-align: bottom;
-    color: @blue;
-}
-
-div:has(h2) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-@media (max-width: @max-mobile-width) {
-    div:has(h2) {
-        justify-content: center;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-}
-
-p {
-    color: @blue;
-    font-size: 16px;
-    margin-bottom: 20px;
-    padding-right: 50px;
-}
-
-
-@import "blocks/container";
 @import "blocks/header";
 @import "blocks/intro";
 @import "blocks/posts";
