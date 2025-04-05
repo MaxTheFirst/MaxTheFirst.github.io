@@ -63,6 +63,10 @@
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -138,9 +142,9 @@
                 <label for="menu-toggle" class="menu-icon">☰</label>
 
                 <nav class="nav">
-                    <a href="#" class="nav__link">Works</a>
-                    <a href="#" class="nav__link">Blog</a>
-                    <a href="#" class="nav__link">Contacts</a>
+                    <a href="#posts" class="nav__link">Blog</a>
+                    <a href="#works" class="nav__link">Works</a>
+                    <a href="#contact" class="nav__link">Contacts</a>
                 </nav>
             </div>
         </div>
@@ -164,7 +168,7 @@
         </div>
     </section>
 
-    <div class="posts">
+    <div class="posts" id="posts">
         <div class="container">
             <div class="posts__inner">
                 <div class="posts__header">
@@ -198,7 +202,7 @@
             </div>
         </div>
     </div>
-    <div class="works">
+    <div class="works" id="works">
         <div class="container">
             <div class="works__inner">
                 <div class="works__header">
@@ -251,7 +255,7 @@
             </div>
         </div>
     </div>
-    <div class="contact">
+    <div class="contact" id="contact">
         <div class="container">
             <div class="contact__inner">
                 <div class="contact__header">
