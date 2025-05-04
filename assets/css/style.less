@@ -1,9 +1,31 @@
 // compress: true
 @import "vars";
 
+.button {
+    display: inline-block;
+    background-color: @red;
+    color: #fff;
+    text-align: center;
+    line-height: 47px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0px;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: darken(@red, 10%);
+    }
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
 @import "blocks/header";
 @import "blocks/intro";
 @import "blocks/posts";
 @import "blocks/works";
 @import "blocks/form";
 @import "blocks/end";
+
