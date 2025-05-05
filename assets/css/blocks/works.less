@@ -26,17 +26,24 @@
     width: 100%;
 }
 
+.work:hover {
+    border: 1px solid @blue;
+    background-color: rgba(0, 0, 0, 0.02);    
+    box-shadow: 0 0 8px 2px @blue;
+    transition: all 0.3s ease;
+}
+
 .work__image {
     max-width: 246px;
     height: auto;
     border-radius: 6px;
     flex-shrink: 0;
+    margin-left: 10px;
 }
 
 .work__text {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
 }
 
 .work__title {

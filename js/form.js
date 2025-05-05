@@ -1,39 +1,38 @@
-const openPopupButton = document.querySelector(".contact__open__button");
-const closePopupButton = document.querySelector(".pop_up__close");
-const popup = document.querySelector(".pop_up");
-const popupContainer = document.querySelector(".pop_up_container");
+const openFormBtn = document.querySelector(".contact__open__button");
+const closeFormBtn = document.querySelector(".form__close");
+const formPopUp = document.querySelector(".form__pop_up");
 const form = document.querySelector(".contact__form");
 
 
-function openPopup() {
+function openForm() {
     document.body.classList.add("no-scroll");
-    popup.classList.add("active");
+    formPopUp.classList.add("active");
 }
 
-function closePopup() {
+function closeForm() {
     document.body.classList.remove("no-scroll");
-    popup.classList.remove("active");
+    formPopUp.classList.remove("active");
     localStorage.setItem("popupClosed", "true");
 }
 
 
 setTimeout(() => {
-    const isPopupClosed = localStorage.getItem("popupClosed");
-    if (!isPopupClosed) {
-        openPopup();
+    const isFormClosed = localStorage.getItem("popupClosed");
+    if (!isFormClosed) {
+        openForm();
     }
 }, 30000);
 
-openPopupButton.addEventListener("click", (e) => {
+openFormBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    openPopup();
+    openForm();
 });
 
-closePopupButton.addEventListener("click", closePopup);
+closeFormBtn.addEventListener("click", closeForm);
 
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-        closePopup();
+        closeForm();
     }
 });
 
@@ -103,12 +102,6 @@ form.addEventListener("submit", function (e) {
 
     if (hasError) return;
 
-    inputs.forEach(el => el.classList.remove("error"));
-    errorMessages.forEach(el => {
-        el.textContent = "";
-        el.classList.remove("active");
-    });
-
     form.reset();
-    closePopup();
+    closeForm();
 });
