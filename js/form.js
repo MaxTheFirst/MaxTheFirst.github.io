@@ -104,4 +104,30 @@ form.addEventListener("submit", function (e) {
 
     form.reset();
     closeForm();
+
+    fetch("/your-endpoint", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name,
+            email,
+            message
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Success:", data);
+        form.reset();
+        closeForm();
+    })
+    .catch(error => {
+        console.error("Error submitting form:", error);
+    });
 });
