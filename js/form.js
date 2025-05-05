@@ -42,6 +42,8 @@ form.addEventListener("submit", function (e) {
     const nameInput = form.querySelector("#name");
     const emailInput = form.querySelector("#email");
     const messageInput = form.querySelector("#message");
+    const submitBtn = form.querySelector("button[type='submit']");
+
     let inputs = [nameInput, emailInput, messageInput];
 
     const errorName = form.querySelector("#error-name");
@@ -102,32 +104,48 @@ form.addEventListener("submit", function (e) {
 
     if (hasError) return;
 
-    form.reset();
-    closeForm();
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    submitBtn.style.backgroundColor = "#999";
+    submitBtn.style.cursor = "not-allowed";
 
     fetch("/your-endpoint", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-            name,
-            email,
-            message
-        })
+        body: JSON.stringify({ name, email, message })
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error("Network response was not ok");
-        }
+        if (!response.ok) throw new Error("Network response was not ok");
         return response.json();
     })
     .then(data => {
-        console.log("Success:", data);
+        submitBtn.textContent = "Успешно отправлено!";
+        submitBtn.style.backgroundColor = "#4caf50";
+        submitBtn.style.cursor = "default";
+
         form.reset();
         closeForm();
+
+        setTimeout(() => {
+            submitBtn.textContent = "Отправить";
+            submitBtn.style.backgroundColor = "";
+            submitBtn.disabled = false;
+            submitBtn.style.cursor = "";
+        }, 3000);
     })
     .catch(error => {
         console.error("Error submitting form:", error);
+        submitBtn.textContent = "Error!";
+        submitBtn.style.backgroundColor = "#f44336";
+        submitBtn.style.cursor = "default";
+
+        setTimeout(() => {
+            submitBtn.textContent = "Send Message";
+            submitBtn.style.backgroundColor = "";
+            submitBtn.disabled = false;
+            submitBtn.style.cursor = "";
+        }, 3000);
     });
 });
