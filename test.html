@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Анимация SVG</title>
+  <style>
+    svg {
+      width: 200px;
+      height: 100px;
+    }
+
+    .animate-stroke {
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      animation: draw 2s ease forwards;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 200 100">
+    <rect width="200" height="100" fill="none" stroke="blue" stroke-width="4" class="animate-stroke" />
+  </svg>
+</body>
+</html>
