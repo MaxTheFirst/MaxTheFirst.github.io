@@ -1,365 +1,282 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A portfolio is a demonstration of my work and projects.">
-    <meta name="keywords" content="portfolio, web development, projects, design">
-    <meta name="author" content="Maxim Vershinin">
-    <meta name="robots" content="index, follow">
-
-    <title>Portfolio</title>
-
-    <link rel="icon" href="assets/images/icon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <meta property="og:title" content="Portfolio">
-    <meta property="og:description" content="A portfolio is a demonstration of my work and projects.">
-    <meta property="og:image" content="assets/images/photo.png">
-    <meta property="og:url" content="https://maxthefirst.github.io/">
-    <meta property="og:type" content="website">
-
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <style>
-        /* math */
-        @font-face {
-            font-family: 'Heebo';
-            font-style: normal;
-            font-weight: 100 900;
-            font-display: swap;
-            src: url('assets/fonts/NGS6v5_NC0k9P9GKTbFzsQ.woff2') format('woff2');
-            unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
-        }
-
-        /* symbols */
-        @font-face {
-            font-family: 'Heebo';
-            font-style: normal;
-            font-weight: 100 900;
-            font-display: swap;
-            src: url('assets/fonts/NGS6v5_NC0k9P9GYTbFzsQ.woff2') format('woff2');
-            unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
-        }
-
-        /* latin-ext */
-        @font-face {
-            font-family: 'Heebo';
-            font-style: normal;
-            font-weight: 100 900;
-            font-display: swap;
-            src: url('assets/fonts/NGS6v5_NC0k9P9H4TbFzsQ.woff2') format('woff2');
-            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-        }
-
-        /* latin */
-        @font-face {
-            font-family: 'Heebo';
-            font-style: normal;
-            font-weight: 100 900;
-            font-display: swap;
-            src: url('assets/fonts/NGS6v5_NC0k9P9H2TbE.woff2') format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Heebo', sans-serif;
-            font-weight: 400;
-            font-size: 16px;
-        }
-
-        *,
-        *:before,
-        *:after {
-            box-sizing: border-box;
-        }
-
-        h2 {
-            font-size: 22px;
-            font-weight: 400;
-            line-height: 60px;
-            letter-spacing: 0px;
-            vertical-align: bottom;
-            color: #142850;
-        }
-
-        div:has(h2) {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        @media (max-width: 756px) {
-            div:has(h2) {
-                justify-content: center;
-            }
-
-            h2 {
-                font-size: 18px;
-            }
-        }
-
-        p {
-            color: #142850;
-            font-size: 16px;
-            margin-bottom: 20px;
-            padding-right: 50px;
-        }
-
-        .container {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            justify-content: space-between;
-            align-items: center;
-            padding-left: 50px;
-            padding-right: 50px;
-        }
-
-        @media (max-width: 756px) {
-            .container {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDFShare — Landing</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+<body class="page">
 
-<body>
-    <header>
-        <div class="container">
-            <div class="header__inner">
-                <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-                <label for="menu-toggle" class="menu-icon">☰</label>
+  <header class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">PDFShare</h1>
+      <p class="hero__subtitle">Делитесь документами легко</p>
 
-                <nav class="nav">
-                    <a href="#posts" class="nav__link">Blog</a>
-                    <a href="#works" class="nav__link">Works</a>
-                    <a href="#contact" class="nav__link">Contacts</a>
-                </nav>
+      <p class="hero__description">
+        Храните, систематизируйте и делитесь PDF-документами.
+        Получайте уведомления об обновлениях через Telegram.
+      </p>
+
+      <div class="hero__actions">
+        <a href="https://telegram.me/ttestpython_bot?start=auth" class="button button--primary hero__button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 
+            12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 
+            1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 
+            4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+          </svg>
+          Войти через Telegram
+        </a>
+      </div>
+
+      <p class="hero__note">Новый пользователь? Нажмите кнопку выше для регистрации</p>
+    </div>
+  </header>
+
+  <section class="section problem blue">
+    <div class="section__inner">
+      <h2 class="section__title">Проблемы</h2>
+      <div class="section__text">
+        <p><strong>В институте</strong> во время сессии часто нужно быстро получить обновлённый вариант билетов. </p>
+
+        <p><strong>На работе</strong> нужен отчёт от коллеги. Ты знаешь, что он его уже правит — но когда он закончит?
+        Где актуальная версия?</p>
+
+        <p><strong>При работе с проектами</strong> команда использует разные платформы: кто-то отправляет файлы в Telegram,
+        кто-то в Google Drive, кто-то по почте. Документы рассеиваются, теряются версии.</p>
+
+        <p>Есть решение!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section solution">
+    <div class="section__inner">
+      <h2 class="section__title">Решение</h2>
+      <p class="section__text">
+        <strong>PDFShare</strong> — это удобное пространство для хранения, обновления и расшаривания PDF-документов
+        с автоматическими уведомлениями в Telegram.  
+        Вы просто загружаете файл, а все подписчики получают сообщение о новой версии.
+      </p>
+    </div>
+  </section>
+
+  <section class="section tech">
+    <div class="section__inner">
+      <h2 class="section__title">Техническое описание</h2>
+
+      <ul class="tech__list">
+        <li><strong>Frontend:</strong> React (TypeScript)</li>
+        <li><strong>Backend:</strong> Node.js (TypeScript)</li>
+        <li><strong>Хранилище:</strong> Google Cloud Storage</li>
+        <li><strong>База данных:</strong> PostgreSQL</li>
+        <li><strong>Авторизация:</strong> Telegram (одноразовые токены из бота)</li>
+        <li><strong>PDF Viewer:</strong> react-pdf</li>
+        <li><strong>Уведомления:</strong> Telegram Bot (webhook mode)</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <section class="section usecases">
+    <div class="section__inner">
+      <h2 class="section__title">Пользовательские сценарии</h2>
+
+      <div class="usecases__grid">
+
+        <article class="usecase-card">
+          <h3 class="usecase-card__title">📘 Студент</h3>
+          <p class="usecase-card__text">
+            Загружает билеты/работы, делится ссылкой с группой.  
+            Преподаватель внёс правки в программу — студент загружает новую версию, а всем подписчикам приходит уведомление в Telegram.
+          </p>
+        </article>
+
+        <article class="usecase-card">
+          <h3 class="usecase-card__title">📊 Офисный сотрудник</h3>
+          <p class="usecase-card__text">
+            Делится отчётом с отделом.  
+            При обновлении файла коллеги получают уведомления — больше никаких «скинь ещё раз»/«ГДЕ ОТЧЕТ!?».
+          </p>
+        </article>
+
+        <article class="usecase-card">
+          <h3 class="usecase-card__title">🤝 Команда проекта</h3>
+          <p class="usecase-card__text">
+            Хранит договоры, спецификации, схемы.  
+            Папки можно расшаривать публично или точечно по подписке.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- API -->
+  <section class="section api">
+    <div class="section__inner">
+      <h2 class="section__title">Описание API</h2>
+
+      <p class="section__subtitle">Основные endpoints</p>
+
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/api/auth/telegram-login/:token</td>
+            <td>GET</td>
+            <td>Логин пользователя по одноразовому токену</td>
+          </tr>
+          <tr>
+            <td>/api/auth/me</td>
+            <td>GET</td>
+            <td>Получение данных текущего пользователя</td>
+          </tr>
+          <tr>
+            <td>/api/folders</td>
+            <td>GET</td>
+            <td>Список папок пользователя</td>
+          </tr>
+          <tr>
+            <td>/api/folders</td>
+            <td>POST</td>
+            <td>Создание новой папки</td>
+          </tr>
+          <tr>
+            <td>/api/folders/:id</td>
+            <td>DELETE</td>
+            <td>Удаление папки</td>
+          </tr>
+          <tr>
+            <td>/api/files</td>
+            <td>POST</td>
+            <td>Загрузка файла</td>
+          </tr>
+          <tr>
+            <td>/api/files/:id</td>
+            <td>GET</td>
+            <td>Получение файла</td>
+          </tr>
+          <tr>
+            <td>/api/files/:id/share</td>
+            <td>POST</td>
+            <td>Поделиться файлом</td>
+          </tr>
+          <tr>
+            <td>/api/subscriptions</td>
+            <td>POST</td>
+            <td>Создание подписки</td>
+          </tr>
+        </tbody>
+      </table>      
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__inner">
+        <h2 class="section__title">Возможности PDFShare</h2>
+
+        <div class="features__grid">
+
+            <article class="feature-card">
+            <div class="feature-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+
             </div>
-        </div>
-    </header>
+            <h3 class="feature-card__title">Загрузка файлов</h3>
+            <p class="feature-card__text">Перетаскивайте PDF-файлы для быстрой загрузки.</p>
+            </article>
 
-    <section class="intro">
-        <div class="container">
-            <div class="intro__inner">
-                <div class="intro__content">
-                    <h1 class="intro__title">Hi, I am John, Creative Technologist</h1>
-                    <p class="intro__text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                        Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                    </p>
-                    <a href="#" class="button intro__button">Download Resume</a>
-                </div>
-                <div class="intro__photo">
-                    <div class="intro__photo-bg"></div>
-                    <img src="assets/images/photo.webp" alt="avatar">
-                </div>
-            </div>
-        </div>
-    </section>
+            <article class="feature-card">
+            <div class="feature-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>
+                </svg>
 
-    <div class="posts" id="posts">
-        <div class="container">
-            <div class="posts__inner">
-                <div class="posts__header">
-                    <h2 class="posts__title">Recent posts</h2>
-                    <a href="#" class="posts__link">View all</a>
-                </div>
-                <div class="posts__content">
-                    <div class="post">
-                        <h3 class="post__title">Post Title 1</h3>
-                        <div class="post__info">
-                            <span class="post__date">March 21, 2025</span>
-                            <span class="post__separator">|</span>
-                            <span class="post__category">Technology</span>
-                        </div>
-                        <p class="post__description">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-                            sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
-                            nostrud amet.</p>
-                    </div>
-                    <div class="post">
-                        <h3 class="post__title">Post Title 2</h3>
-                        <div class="post__info">
-                            <span class="post__date">March 21, 2025</span>
-                            <span class="post__separator">|</span>
-                            <span class="post__category">Technology</span>
-                        </div>
-                        <p class="post__description">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-                            sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
-                            nostrud amet.</p>
-                    </div>
-                </div>
             </div>
+            <h3 class="feature-card__title">Организация</h3>
+            <p class="feature-card__text">Создавайте папки и структурируйте документы.</p>
+            </article>
+
+            <article class="feature-card">
+            <div class="feature-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="18" cy="5" r="3"/>
+    <circle cx="6" cy="12" r="3"/>
+    <circle cx="18" cy="19" r="3"/>
+    <line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/>
+    <line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/>
+    </svg>
+
+            </div>
+            <h3 class="feature-card__title">Общий доступ</h3>
+            <p class="feature-card__text">Делитесь файлами и папками по ссылке.</p>
+            </article>
+
+            <article class="feature-card">
+            <div class="feature-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+    <polyline points="14 2 14 8 20 8"/>
+    <line x1="16" y1="13" x2="8" y2="13"/>
+    <line x1="16" y1="17" x2="8" y2="17"/>
+    <line x1="10" y1="9" x2="8" y2="9"/>
+    </svg>
+
+            </div>
+            <h3 class="feature-card__title">PDF Viewer</h3>
+            <p class="feature-card__text">Просматривайте документы онлайн.</p>
+            </article>
+
+            <article class="feature-card">
+            <div class="feature-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+    </svg>
+
+            </div>
+            <h3 class="feature-card__title">Уведомления</h3>
+            <p class="feature-card__text">Получайте уведомления через Telegram.</p>
+            </article>
+
+            <article class="feature-card">
+            <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 7v6l4 2"></path>
+                </svg>
+            </div>
+            <h3 class="feature-card__title">Недавние</h3>
+            <p class="feature-card__text">Автоматическая папка с последними документами.</p>
+            </article>
+
         </div>
     </div>
-    <div class="works" id="works">
-        <div class="container">
-            <div class="works__inner">
-                <div class="works__header">
-                    <h2 class="works__title">Featured works</h2>
-                </div>
-                <div class="works__content">
-                    <div class="work">
-                        <img src="assets/images/works/work1.png" alt="work" class="work__image">
-                        <div class="work__text">
-                            <h3 class="work__title">Designing Dashboards</h3>
-                            <div class="work__info">
-                                <span class="work__year">2020</span>
-                                <span class="work__category">Dashboard</span>
-                            </div>
-                            <p class="work__description">
-                                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-                                consequat duis enim velit mollit.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="work">
-                        <img src="assets/images/works/work2.png" alt="work" class="work__image">
-                        <div class="work__text">
-                            <h3 class="work__title">Designing Dashboards 1</h3>
-                            <div class="work__info">
-                                <span class="work__year">2021</span>
-                                <span class="work__category">Dashboard</span>
-                            </div>
-                            <p class="work__description">
-                                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-                                consequat duis enim velit mollit. 1
-                            </p>
-                        </div>
-                    </div>
-                    <div class="work">
-                        <img src="assets/images/works/work3.png" alt="work" class="work__image">
-                        <div class="work__text">
-                            <h3 class="work__title">Designing Dashboards 2</h3>
-                            <div class="work__info">
-                                <span class="work__year">2022</span>
-                                <span class="work__category">Dashboard 2</span>
-                            </div>
-                            <p class="work__description">
-                                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-                                consequat duis enim velit mollit. 2
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__content">
+      © 2025 PDFShare. Все права защищены.
     </div>
+  </footer>
 
-    <div class="pop_up gallery__pop_up">
-        <div class="arrow arrow__left">&larr;</div>
-        <div class="pop_up_container gallery__container">
-            <div class="pop_up__body gallery__body">
-                <img src="assets/images/works/work1.png" alt="work" class="work__image gallery__image">
-                <div class="work__text gallery__text">
-                    <h3 class="work__title gallery__title">Designing Dashboards</h3>
-                    <div class="work__info gallery__info">
-                        <span class="work__year gallery__year">2020</span>
-                        <span class="work__category gallery__category">DAG</span>
-                    </div>
-                    <p class="work__description gallery__description">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-                        consequat duis enim velit mollit. 2</p>
-                </div>
-            </div>
-        </div>
-        <div class="arrow arrow__right">&rarr;</div>
-        <div class="pop_up__close gallery__close">&#10006;</div>
-    </div>    
-
-    <div class="contact" id="contact">
-        <div class="container">
-            <div class="contact__inner">
-                <div class="contact__header">
-                    <h2 class="contact__title">Get in Touch</h2>
-                </div>
-                <div class="contact__content">
-                    <a href="#" class="button contact__open__button">Open form</a>    
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="pop_up form__pop_up">
-        <div class="pop_up_container form__container">
-            <div class="pop_up__body form__body">
-                <h3 class="form__title">Contact Us</h3>
-                <form action="#" method="post" class="contact__form">
-                    <div class="form__group">
-                        <label for="name">Name</label>
-                        <div class="error-message" id="error-name"></div>
-                        <input type="text" id="name" name="name" placeholder="Your Name">
-                    </div>
-                    <div class="form__group">
-                        <label for="email">Email</label>
-                        <div class="error-message" id="error-email"></div>
-                        <input type="text" id="email" name="email" placeholder="Your Email">
-                    </div>
-                    <div class="form__group">
-                        <label for="message">Message</label>
-                        <div class="error-message" id="error-message"></div>
-                        <textarea id="message" name="message" placeholder="Your Message"></textarea>
-                    </div>                    
-                    <button type="submit" class="button contact__button">Send Message</button>
-                </form>
-            </div>
-        </div>
-        <div class="pop_up__close form__close">&#10006;</div>
-    </div>    
-
-    <div class="timer">
-        <div class="container">
-          <div class="timer__inner">
-            <div class="timer__header">
-                <h2 class="timer__title">Time until the end of MIPT</h2>
-            </div>
-            <div class="timer__content">
-                <p class="timer__text"></p>
-                <div class="progress__inner">
-                    <svg class="progress_bar" width="100%" height="10">
-                        <rect x="0" y="0" width="100%" height="10" fill="white"/>
-                        <rect class="progress_bar_animate" x="0" y="0" width="100%" height="10" fill="none" stroke="#142850" stroke-width="10"/>
-                    </svg>
-                </div>
-            </div>
-          </div>  
-        </div>
-    </div>
-
-    <div class="end">
-        <div class="container">
-            <div class="end__inner">
-                <div class="end__icons">
-                    <a href="#">
-                        <img src="assets/images/end_block/fb.png" alt="facebook">
-                    </a>
-                    <a href="#">
-                        <img src="assets/images/end_block/insta.png" alt="instagram">
-                    </a>
-                    <a href="#">
-                        <img src="assets/images/end_block/tw.png" alt="twitter">
-                    </a>
-                    <a href="#">
-                        <img src="assets/images/end_block/Linkedin.png" alt="Linkedin">
-                    </a>
-                </div>
-                <div class="end__content">
-                    <p class="end__text">Copyright ©2020 All rights reserved</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script type="module" src="js/main.js"></script>
 </body>
-
 </html>
